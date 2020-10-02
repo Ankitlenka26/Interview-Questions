@@ -51,6 +51,7 @@ bool canPlaceNum(int board[][9] , int row , int col , int num)
     if(!isRowSafe(board,row,num)) return false ;
     if(!isColSafe(board,col,num)) return false ;
     if(!isBoxSafe(board,row,col,num)) return false ;
+
     return true; 
 }
 bool sudokuSolver(int board[][9])
@@ -88,7 +89,7 @@ bool sudokuSolver(int board[][9])
            {
                return true;
            }
-           board[row][col] = 0 ;  // Choose one and then backtrack if that choice was not accurate 
+           board[row][col] = 0 ;
 
        }
    }
@@ -100,6 +101,8 @@ int main()
     int t; 
     cin >> t ; 
     int board[9][9];
+    while(t--)
+    {
       for(int i=0 ; i<9 ; i++)
       {
           for(int j=0;j<9;j++)
@@ -114,7 +117,8 @@ int main()
        }
        else 
        {
-           cout <<  -1 << endl; 
+           return -1; 
        }
+    }
     return 0 ;
 }
